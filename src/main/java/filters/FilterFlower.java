@@ -30,12 +30,13 @@ public class FilterFlower implements Filter {
 
     @Override
     public boolean match(Item item) {
-        if (item instanceof FlowerBucket == false) {
+        if (!(item instanceof FlowerBucket)) {
             throw new IllegalArgumentException("Invalid type for flower");
         }
 
-        FlowerBucket flowerBuck = (FlowerBucket)item;
-        if (priceMin > flowerBuck.getPrice() && flowerBuck.getPrice() > priceMax) {
+        FlowerBucket flowerBuck = (FlowerBucket) item;
+        if (priceMin > flowerBuck.getPrice()
+            && flowerBuck.getPrice() > priceMax) {
                 return false;
         }
 
@@ -49,8 +50,8 @@ public class FilterFlower implements Filter {
             if (flowers.contains(flower)) {
                 hasFlower = true;
             }
-            if (sepalLengthMin <= flower.getSepalLength() &&
-                flower.getSepalLength() <= sepalLengthMax) {
+            if (sepalLengthMin <= flower.getSepalLength()
+                && flower.getSepalLength() <= sepalLengthMax) {
                 hasSepalLen = true;
             }
             if (flowerTypeList.contains(flower.getFlowerType())) {
