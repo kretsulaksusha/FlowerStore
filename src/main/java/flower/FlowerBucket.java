@@ -3,6 +3,9 @@ package flower;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.Getter;
+
+@Getter
 public class FlowerBucket extends Item {
     private List<FlowerPack> flowerBucket = new ArrayList<>();
 
